@@ -1,0 +1,21 @@
+.country-section {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-gap: 30px;
+}
+
+@media only screen and (max-width: 768px){
+    .country-section {
+        grid-template-columns: 33% 33% 33%;
+        grid-gap: 0;
+    }
+}
+
+@media only screen and (max-width: 490px){
+    .country-section {
+        grid-template-columns: 50% 50%;
+        
+    }
+}
