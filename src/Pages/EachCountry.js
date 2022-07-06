@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { useParams, useLocation, NavLink } from 'react-router-dom'
+import React from 'react'
+import { useLocation, NavLink } from 'react-router-dom'
 import EachCountrySearchbar from '../Component/EachCountrySearchbar';
 import Map from '../Component/Map';
 import "./eachCountry.css"
@@ -7,7 +7,7 @@ import "./eachCountry.css"
 const EachCountry = () => {
 
     const location = useLocation();
-    const {name,flags,capital,area,latlng, region, subregion, languages, currencies} = location.state;
+    const {name,flags,capital,latlng, region, subregion, languages, currencies} = location.state;
   return (
     <div>
         <div className="single-country-container">

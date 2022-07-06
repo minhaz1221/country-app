@@ -9,8 +9,6 @@ const EachCountrySearchbar = () => {
   const {countries, isLoading, error} = UseFectch("https://restcountries.com/v3.1/all");
   const [filterdCountries, setFilterdCountries] = useState([]);
   const [isNavbarOpend, setIsNavbarOpend] = useState(false);
-  console.log(isNavbarOpend)
-  console.log(filterdCountries)
 
   const handleSearch = (e) =>{
     var value = e.target.value.toLowerCase();

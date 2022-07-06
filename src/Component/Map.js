@@ -7,7 +7,6 @@ const geoUrl =
 const Map = (props) => {
     const name = props.name;
     const [content, setContent] = useState('');
-    console.log(props)
   return (
     <div className='map-container' style={{width: "100%"}}>
         <ReactTooltip>{content}</ReactTooltip>
@@ -15,7 +14,6 @@ const Map = (props) => {
             <ZoomableGroup zoom={1}>
                 <Geographies geography={geoUrl}>
             {({geographies}) => geographies.map(geo => {
-                // console.log(geo.properties)
                 if(geo.properties.NAME.includes(name.common) || name.official == geo.properties.FORMAL_EN){
                   console.log(`Country Data:- ${name.official}`);
                   console.log(`Country map:- ${geo.properties.FORMAL_EN}`);
@@ -28,7 +26,6 @@ const Map = (props) => {
                     onMouseEnter = {() => {
                       const { NAME } = geo.properties;
                       setContent(NAME);
-                      console.log(content)
                    }}
                    onMouseLeave = {() => {
                       setContent('');
@@ -45,7 +42,6 @@ const Map = (props) => {
                     onMouseEnter = {() => {
                        const { NAME } = geo.properties;
                        setContent(NAME);
-                       console.log(content)
                     }}
                     onMouseLeave = {() => {
                        setContent('');
