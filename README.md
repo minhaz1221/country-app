@@ -3,11 +3,11 @@ It's one of my practice project with react. You can get some basic information a
 
 ## here some Screen short  
 
-<img src="./src/image/Screenshot%20(122).png" alt="MarineGEO circle logo" style="height: 100px; width:32%;"/>
-<img src="./src/image/Screenshot%20(123).png" alt="MarineGEO circle logo" style="height: 100px; width:32%;"/>
-<img src="./src/image/Screenshot%20(124).png" alt="MarineGEO circle logo" style="height: 100px; width:32%;"/>
+<img src="./src/image/Screenshot%20(122).png" alt="MarineGEO circle logo" style="height: 100px; width:30%;"/>
+<img src="./src/image/Screenshot%20(123).png" alt="MarineGEO circle logo" style="height: 100px; width:30%;"/>
+<img src="./src/image/Screenshot%20(124).png" alt="MarineGEO circle logo" style="height: 100px; width:30%;"/>
 
-### here is live link you can visit by click here:  http://minhaz1221.github.io/Simple-TodoApp 
+### here is live link you can visit by click here:  http://minhaz1221.github.io/country-app 
 
 
 ## You can run it also in your  local machine: 
