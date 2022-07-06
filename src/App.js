@@ -1,13 +1,12 @@
 import React from 'react'
 
-import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import {BrowserRouter, HashRouter, Route, Routes} from 'react-router-dom'
 import Home from './Pages/Home'
 import EachCountry from './Pages/EachCountry'
-import Error from './Pages/Error'
 
 export const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
         <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/:name' element={<EachCountry />}>
@@ -15,7 +14,7 @@ export const App = () => {
             </Route>
             
         </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
