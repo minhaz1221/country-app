@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import UseFectch from './UseFetch';
 import "../Pages/eachCountry.css"
 import {SearchNav, SearchInput, SearchResult, BarIcon, TimesIcon} from './Style-components/header.style'
@@ -9,6 +9,7 @@ const EachCountrySearchbar = () => {
   const {countries, isLoading, error} = UseFectch("https://restcountries.com/v3.1/all");
   const [filterdCountries, setFilterdCountries] = useState([]);
   const [isNavbarOpend, setIsNavbarOpend] = useState(false);
+  const Inpt = useRef();
 
   const handleSearch = (e) =>{
     var value = e.target.value.toLowerCase();
@@ -19,9 +20,13 @@ const EachCountrySearchbar = () => {
 
     setFilterdCountries(filteredCountry)
   }
-
+  const handleClick = () => {
+    setIsNavbarOpend(false);
+    Inpt.current.value = '';
+    setFilterdCountries([...countries]);
+  }
   useEffect(() => {
-    setFilterdCountries([...countries])
+    setFilterdCountries([...countries]);
     
   }, [isLoading])
   
@@ -30,7 +35,7 @@ const EachCountrySearchbar = () => {
         <BarIcon onClick={() => setIsNavbarOpend(true)} isNavbarOpend={isNavbarOpend} />
         <SearchNav isNavbarOpend={isNavbarOpend}>
         <TimesIcon onClick={() => setIsNavbarOpend(false)} isNavbarOpend={isNavbarOpend} />
-            <SearchInput type="search" onChange={handleSearch} placeholder="You can also search here..."></SearchInput>
+            <SearchInput ref={Inpt} type="search" onChange={handleSearch} placeholder="You can also search here..."></SearchInput>
             <SearchResult>
                 {
                   isLoading && <h3>Country is loading...</h3>
@@ -40,9 +45,9 @@ const EachCountrySearchbar = () => {
                 }
                 <ul>{
                     countries && filterdCountries.map((country) => {
-                      const {name,flags,capital,area,latlng, region, subregion, languages, currencies} = country
+                      const {name,flags,capital,area,latlng, region, subregion, languages, currencies, cca3} = country
                         return (
-                          <NavLink onClick={() => setIsNavbarOpend(false)} to={name.common} state={{name,flags,capital,area,latlng, region, subregion, languages, currencies}}>{country.name.common}</NavLink>
+                          <NavLink key={name.common} onClick={handleClick} to={name.common} state={{name,flags,capital,area,latlng, region, subregion, languages, currencies, cca3}}>{country.name.common}</NavLink>
                     )
                     })
                   }

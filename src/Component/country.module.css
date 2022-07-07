@@ -40,7 +40,13 @@
     .btn-container{
         padding: 10px;
     }
-    .btn {
-        padding: 7px 16px;
+}
+
+@media screen and (max-width: 490px){
+    .image {
+        width: 90%;
+    }
+    .btn-container{
+        padding: 5px;
     }
 }

@@ -18,7 +18,7 @@ const Country = (props) => {
           <p className={style.text}><b>Capital:</b> {capital}</p>
           <p className={style.text}><b>Area:</b> {area} sq.km</p>
           <div className={style['btn-container']}>
-              <Link to={name.common} state={{name, flags,capital,area,latlng, region, subregion, languages, currencies}} className="btn">Details</Link>
+              <Link  className="btn" to={name.common} state={{name, flags,capital,area,latlng, region, subregion, languages, currencies}}>Details</Link>
           </div>
         </section>
     </div>

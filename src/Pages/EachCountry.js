@@ -5,9 +5,8 @@ import Map from '../Component/Map';
 import "./eachCountry.css"
 
 const EachCountry = () => {
-
     const location = useLocation();
-    const {name,flags,capital,latlng, region, subregion, languages, currencies} = location.state;
+    const {name,flags,capital,latlng, region, subregion, languages, currencies,cca3} = location.state;
   return (
     <div>
         <div className="single-country-container">
@@ -41,7 +40,7 @@ const EachCountry = () => {
                     <img className="single-country-flag" src={flags.png}/>
                   </div>
                 </section>
-                <Map name={name}/>
+                <Map name={{name, cca3}}/>
             </section>
 
           

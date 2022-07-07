@@ -2,10 +2,9 @@ import React, { useState } from 'react'
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from 'react-simple-maps'
 import ReactTooltip from 'react-tooltip';
 
-const geoUrl =
-  "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json"
+const geoUrl ="https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
 const Map = (props) => {
-    const name = props.name;
+    const {name, cca3} = props.name;
     const [content, setContent] = useState('');
   return (
     <div className='map-container' style={{width: "100%"}}>
@@ -14,18 +13,15 @@ const Map = (props) => {
             <ZoomableGroup zoom={1}>
                 <Geographies geography={geoUrl}>
             {({geographies}) => geographies.map(geo => {
-                if(geo.properties.NAME.includes(name.common) || name.official == geo.properties.FORMAL_EN){
-                  console.log(`Country Data:- ${name.official}`);
-                  console.log(`Country map:- ${geo.properties.FORMAL_EN}`);
-                  console.log(geo)
+                if(geo.properties.name.includes(name.common) || geo.id == cca3){
                   return (
                     <Geography
                     key={geo.rsmKey} 
                     geography={geo} 
                     style={{hover: {fill: "orange", outline: 'none'},default: {fill: "orange", outline: 'none'}}}
                     onMouseEnter = {() => {
-                      const { NAME } = geo.properties;
-                      setContent(NAME);
+                      const { name } = geo.properties;
+                      setContent(name);
                    }}
                    onMouseLeave = {() => {
                       setContent('');
@@ -40,8 +36,8 @@ const Map = (props) => {
                     key={geo.rsmKey} 
                     geography={geo} 
                     onMouseEnter = {() => {
-                       const { NAME } = geo.properties;
-                       setContent(NAME);
+                       const { name } = geo.properties;
+                       setContent(name);
                     }}
                     onMouseLeave = {() => {
                        setContent('');
